@@ -1,6 +1,7 @@
 {
     "name": "phpbadge/phpbadge",
     "description": "A PHP library to create badges.",
+    "keywords": ["badge", "badges", "pose", "button", "phpbadge"],
     "license": "MIT",
     "require": {
         "php": ">=5.3.3"
@@ -18,5 +19,12 @@
             "PHP\\BadgeTest\\": "tests/BadgeTest",
             "PHP\\BadgeTestAsset\\": "tests/BadgeTestAsset"
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "Walter Tamboer",
+            "homepage": "http://www.waltertamboer.nl",
+            "role": "Developer"
+        }
+    ]
 }
