@@ -1,0 +1,22 @@
+{
+    "name": "phpbadge/phpbadge",
+    "description": "A PHP library to create badges.",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHP\\Badge\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHP\\BadgeTest\\": "tests/BadgeTest",
+            "PHP\\BadgeTestAsset\\": "tests/BadgeTestAsset"
+        }
+    }
+}
