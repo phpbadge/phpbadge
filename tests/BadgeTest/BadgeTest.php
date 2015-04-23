@@ -70,8 +70,8 @@ class BadgeTest extends PHPUnit_Framework_TestCase
         $value = $badge->getHeight();
 
         // Assert
-        $this->assertInternalType('int', $badge->getHeight());
-        $this->assertEquals(20, $badge->getHeight());
+        $this->assertInternalType('int', $value);
+        $this->assertEquals(20, $value);
     }
 
     public function testSetGetHeight()
