@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/phpbadge/phpbadge.svg?branch=master)](https://travis-ci.org/phpbadge/phpbadge)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpbadge/phpbadge/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpbadge/phpbadge/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/phpbadge/phpbadge/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phpbadge/phpbadge/?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/55394d401d2989cb7800001d/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55394d401d2989cb7800001d)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/1c61e728-9b88-4e82-9d95-f91dc4cd6b93/mini.png)](https://insight.sensiolabs.com/projects/1c61e728-9b88-4e82-9d95-f91dc4cd6b93)
 
 A PHP library to build badges as seem on many open source services.
 
