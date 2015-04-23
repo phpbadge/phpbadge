@@ -54,7 +54,9 @@ class SvgRenderer implements RendererInterface
         $remainingWidth = $totalWidth;
 
         $parts = $badge->getParts();
-        for ($i = 0; $i < count($parts); ++$i) {
+        $partCount = count($parts);
+        
+        for ($i = 0; $i < $partCount; ++$i) {
             $result .= sprintf(
                 '<rect rx="%d" x="%d" width="%d" height="%s" fill="%s" />',
                 $radius,
