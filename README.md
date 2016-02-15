@@ -6,7 +6,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/55394d401d2989cb7800001d/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55394d401d2989cb7800001d)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1c61e728-9b88-4e82-9d95-f91dc4cd6b93/mini.png)](https://insight.sensiolabs.com/projects/1c61e728-9b88-4e82-9d95-f91dc4cd6b93)
 
-A PHP library to build badges as seem on many open source services.
+A PHP library to build badges as seen in README's of many open source libraries.
 
 ## Getting started
 
