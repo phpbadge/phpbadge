@@ -15,7 +15,7 @@ It's recommended to install this library via [Composer](https://getcomposer.org)
 ```json
 {
     "require": {
-        "phpbadge/phpbadge": "dev-master"
+        "phpbadge/phpbadge": "^1.0"
     }
 }
 ```
