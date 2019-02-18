@@ -4,9 +4,9 @@ namespace PHP\BadgeTest\Font;
 
 use InvalidArgumentException;
 use PHP\Badge\Font\Font;
-use PHPUnit_Framework_TestCase;
+use PHP\BadgeTest\TestCase;
 
-class FontTest extends PHPUnit_Framework_TestCase
+class FontTest extends TestCase
 {
     /**
      * @var Font

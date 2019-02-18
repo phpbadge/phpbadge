@@ -28,6 +28,14 @@ class SvgRenderer implements RendererInterface
         return $width;
     }
 
+    private function calculateTextYCoordinate(Badge $badge, Part $part)
+    {
+        $textHeight = $this->widthCalculator->getHeight($part->getText(), $part->getFont());
+        $height = floor($badge->getHeight() / 2) + floor($textHeight / 2) - 1;
+
+        return $height;
+    }
+
     private function calculateBoxWidths(Badge $badge)
     {
         $widths = array();
@@ -68,9 +76,10 @@ class SvgRenderer implements RendererInterface
 
             if ($i > 0 && $radius > 0) {
                 $result .= sprintf(
-                    '<path fill="%s" d="M%d 0 h4 v20 h-4 z"/>',
+                    '<path fill="%s" d="M%d 0 h4 v%d h-4 z"/>',
                     $parts[$i]->getBackColor(),
-                    $position
+                    $position,
+                    $badge->getHeight()
                 );
             }
 
@@ -84,7 +93,7 @@ class SvgRenderer implements RendererInterface
             $radius,
             0,
             $totalWidth,
-            20
+            $badge->getHeight()
         );
 
         return $result;
@@ -95,10 +104,10 @@ class SvgRenderer implements RendererInterface
         $result = '';
 
         $x = 0;
-        $y = 15;
 
         foreach ($badge->getParts() as $part) {
             $boxWidth = $this->calculateWidth($part);
+            $y = $this->calculateTextYCoordinate($badge, $part);
 
             $result .= sprintf(
                 '<text x="%d" y="%d" fill="%s" font-family="%s" font-size="%d" fill-opacity="%s">%s</text>',

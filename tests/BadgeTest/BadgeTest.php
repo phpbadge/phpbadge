@@ -3,9 +3,9 @@
 namespace PHP\BadgeTest;
 
 use PHP\Badge\Badge;
-use PHPUnit_Framework_TestCase;
+use PHP\BadgeTest\TestCase;
 
-class BadgeTest extends PHPUnit_Framework_TestCase
+class BadgeTest extends TestCase
 {
     public function testGetBorderRadius()
     {
