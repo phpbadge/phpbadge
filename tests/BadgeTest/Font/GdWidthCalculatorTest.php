@@ -21,4 +21,18 @@ class GdWidthCalculatorTest extends TestCase
         $this->assertInternalType('float', $width);
         $this->assertNumberWithinInclusiveBounds(30.0, 34.0, $width);
     }
+
+    public function testGetHeight()
+    {
+        // Arrange
+        $font = new Font(12, 'name', 'fonts/verdana.ttf');
+        $calculator = new GdWidthCalculator();
+
+        // Act
+        $height = $calculator->getHeight('text', $font);
+
+        // Assert
+        $this->assertInternalType('float', $height);
+        $this->assertNumberWithinInclusiveBounds(10.0, 12.0, $height);
+    }
 }
