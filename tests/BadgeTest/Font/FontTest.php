@@ -2,7 +2,6 @@
 
 namespace PHP\BadgeTest\Font;
 
-use InvalidArgumentException;
 use PHP\Badge\Font\Font;
 use PHP\BadgeTest\AbstractTestCase;
 

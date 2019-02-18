@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PHP\Badge\Renderer;
 
 use PHP\Badge\Badge;
