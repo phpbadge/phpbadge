@@ -24,7 +24,9 @@ The current master branch is considered stable. The badges on top of this docume
 
 ## Requirements
 
-This library runs on PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7 and HHVM.
+As from version 2.0.0 this library needs a PHP version >= 7.1.
+
+Older version of the library run on PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7 and HHVM.
 
 ## Example
 
@@ -33,7 +35,7 @@ This library runs on PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7 and HHVM.
 
 use PHP\Badge\Badge;
 use PHP\Badge\Font\Font;
-use PHP\Badge\Font\GdWidthCalculator;
+use PHP\Badge\Font\GdDimensionCalculator;
 use PHP\Badge\Part;
 use PHP\Badge\Renderer\SvgRenderer;
 
@@ -44,7 +46,7 @@ $badge->setBorderRadius(3);
 $badge->addPart(new Part('build', '#555', '#fff', new Font(11, 'verdana', 'fonts/verdana.ttf')));
 $badge->addPart(new Part('passing', '#4c1', '#fff', new Font(11, 'verdana', 'fonts/verdana.ttf')));
 
-$renderer = new SvgRenderer(new GdWidthCalculator());
+$renderer = new SvgRenderer(new GdDimensionCalculator());
 
 echo $renderer->render($badge);
 ```
