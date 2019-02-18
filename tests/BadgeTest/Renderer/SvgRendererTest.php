@@ -7,9 +7,9 @@ use PHP\Badge\Font\Font;
 use PHP\Badge\Font\GdWidthCalculator;
 use PHP\Badge\Part;
 use PHP\Badge\Renderer\SvgRenderer;
-use PHPUnit_Framework_TestCase;
+use PHP\BadgeTest\TestCase;
 
-class SvgRendererTest extends PHPUnit_Framework_TestCase
+class SvgRendererTest extends TestCase
 {
     public function testRenderNoParts()
     {

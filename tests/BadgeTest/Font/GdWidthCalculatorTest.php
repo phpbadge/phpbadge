@@ -4,9 +4,9 @@ namespace PHP\BadgeTest\Font;
 
 use PHP\Badge\Font\Font;
 use PHP\Badge\Font\GdWidthCalculator;
-use PHPUnit_Framework_TestCase;
+use PHP\BadgeTest\TestCase;
 
-class GdWidthCalculatorTest extends PHPUnit_Framework_TestCase
+class GdWidthCalculatorTest extends TestCase
 {
     public function testGetWidth()
     {
@@ -19,6 +19,6 @@ class GdWidthCalculatorTest extends PHPUnit_Framework_TestCase
 
         // Assert
         $this->assertInternalType('float', $width);
-        $this->assertEquals(31.0, $width);
+        $this->assertNumberWithinInclusiveBounds(30.0, 34.0, $width);
     }
 }
