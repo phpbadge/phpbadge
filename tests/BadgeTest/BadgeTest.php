@@ -4,6 +4,8 @@ namespace PHP\BadgeTest;
 
 use InvalidArgumentException;
 use PHP\Badge\Badge;
+use PHP\Badge\Font\Font;
+use PHP\Badge\Part;
 
 class BadgeTest extends AbstractTestCase
 {
@@ -16,7 +18,6 @@ class BadgeTest extends AbstractTestCase
         $value = $badge->getBorderRadius();
 
         // Assert
-        $this->assertInternalType('int', $value);
         $this->assertEquals(0, $value);
     }
 
@@ -29,36 +30,7 @@ class BadgeTest extends AbstractTestCase
         $badge->setBorderRadius(3);
 
         // Assert
-        $this->assertInternalType('int', $badge->getBorderRadius());
         $this->assertEquals(3, $badge->getBorderRadius());
-    }
-
-    public function testSetBorderRadiusWithFloat()
-    {
-        // Arrange
-        $badge = new Badge();
-
-        // Act
-        $badge->setBorderRadius(3.4);
-
-        // Assert
-        $this->assertInternalType('int', $badge->getBorderRadius());
-        $this->assertEquals(3, $badge->getBorderRadius());
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testSetBorderRadiusWithInvalidNumber()
-    {
-        // Arrange
-        $badge = new Badge();
-
-        // Act
-        $badge->setBorderRadius('abc');
-
-        // Assert
-        // ...
     }
 
     public function testGetHeight()
@@ -70,7 +42,6 @@ class BadgeTest extends AbstractTestCase
         $value = $badge->getHeight();
 
         // Assert
-        $this->assertInternalType('int', $value);
         $this->assertEquals(20, $value);
     }
 
@@ -83,7 +54,6 @@ class BadgeTest extends AbstractTestCase
         $badge->setHeight(123);
 
         // Assert
-        $this->assertInternalType('int', $badge->getHeight());
         $this->assertEquals(123, $badge->getHeight());
     }
 
@@ -91,13 +61,13 @@ class BadgeTest extends AbstractTestCase
     {
         // Arrange
         $badge = new Badge();
-        $part = $this->getMockBuilder('PHP\\Badge\\Part')->disableOriginalConstructor()->getMock();
+        $part = new Part('hello', '#fff', '#000', new Font(12, '', ''));
 
         // Act
         $badge->addPart($part);
 
         // Assert
         $this->assertCount(1, $badge->getParts());
-        $this->assertEquals(array($part), $badge->getParts());
+        $this->assertEquals([$part], $badge->getParts());
     }
 }

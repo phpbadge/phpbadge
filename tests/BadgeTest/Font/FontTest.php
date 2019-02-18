@@ -4,9 +4,9 @@ namespace PHP\BadgeTest\Font;
 
 use InvalidArgumentException;
 use PHP\Badge\Font\Font;
-use PHP\BadgeTest\TestCase;
+use PHP\BadgeTest\AbstractTestCase;
 
-final class FontTest extends TestCase
+final class FontTest extends AbstractTestCase
 {
     /**
      * @var Font
@@ -18,21 +18,6 @@ final class FontTest extends TestCase
         $this->font = new Font(12, 'name', 'path');
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testConstructorWithInvalidSize()
-    {
-        // Arrange
-        // ...
-
-        // Act
-        new Font('invalid', 'name', 'path');
-
-        // Assert
-        // ...
-    }
-
     public function testGetSize()
     {
         // Arrange
@@ -42,7 +27,6 @@ final class FontTest extends TestCase
         $value = $this->font->getSize();
 
         // Assert
-        $this->assertInternalType('int', $value);
         $this->assertEquals(12, $value);
     }
 

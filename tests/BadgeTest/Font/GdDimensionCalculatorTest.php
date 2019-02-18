@@ -18,7 +18,6 @@ final class GdDimensionCalculatorTest extends AbstractTestCase
         $width = $calculator->getWidth('text', $font);
 
         // Assert
-        static::assertInternalType('float', $width);
         static::assertNumberWithinInclusiveBounds(30.0, 34.0, $width);
     }
 
@@ -32,7 +31,6 @@ final class GdDimensionCalculatorTest extends AbstractTestCase
         $height = $calculator->getHeight('text', $font);
 
         // Assert
-        static::assertInternalType('float', $height);
         static::assertNumberWithinInclusiveBounds(10.0, 12.0, $height);
     }
 }
