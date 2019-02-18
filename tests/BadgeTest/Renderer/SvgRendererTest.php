@@ -38,7 +38,7 @@ class SvgRendererTest extends PHPUnit_Framework_TestCase
         $result = $renderer->render($badge);
 
         // Assert
-        $this->assertStringEqualsFile('tests/BadgeTestAsset/no-border-one-part.svg', $result);
+        $this->assertStringMatchesFormatFile('tests/BadgeTestAsset/no-border-one-part.svg', $result);
     }
 
     public function testRenderTwoPart()
@@ -56,7 +56,7 @@ class SvgRendererTest extends PHPUnit_Framework_TestCase
         $result = $renderer->render($badge);
 
         // Assert
-        $this->assertStringEqualsFile('tests/BadgeTestAsset/no-border-two-parts.svg', $result);
+        $this->assertStringMatchesFormatFile('tests/BadgeTestAsset/no-border-two-parts.svg', $result);
     }
 
     public function testRenderTwoPartWithBorder()
@@ -75,7 +75,7 @@ class SvgRendererTest extends PHPUnit_Framework_TestCase
         $result = $renderer->render($badge);
 
         // Assert
-        $this->assertStringEqualsFile('tests/BadgeTestAsset/with-border-two-parts.svg', $result);
+        $this->assertStringMatchesFormatFile('tests/BadgeTestAsset/with-border-two-parts.svg', $result);
     }
 
     public function testRenderTwoPartWithBorderAndPredifinedWidth()
