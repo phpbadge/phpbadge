@@ -12,12 +12,8 @@ A PHP library to build badges as seen in README's of many open source libraries.
 
 It's recommended to install this library via [Composer](https://getcomposer.org).
 
-```json
-{
-    "require": {
-        "phpbadge/phpbadge": "^1.0"
-    }
-}
+```bash
+composer require phpbadge/phpbadge
 ```
 
 The current master branch is considered stable. The badges on top of this document should confirm this.
