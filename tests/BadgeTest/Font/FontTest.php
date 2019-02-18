@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use PHP\Badge\Font\Font;
 use PHP\BadgeTest\TestCase;
 
-class FontTest extends TestCase
+final class FontTest extends TestCase
 {
     /**
      * @var Font

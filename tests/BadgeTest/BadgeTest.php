@@ -2,10 +2,10 @@
 
 namespace PHP\BadgeTest;
 
+use InvalidArgumentException;
 use PHP\Badge\Badge;
-use PHP\BadgeTest\TestCase;
 
-class BadgeTest extends TestCase
+class BadgeTest extends AbstractTestCase
 {
     public function testGetBorderRadius()
     {

@@ -5,7 +5,7 @@ namespace PHP\BadgeTest;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_Exception;
 
-class TestCase extends PHPUnit_Framework_TestCase
+abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
 {
     public function assertNumberWithinInclusiveBounds($lower, $upper, $actual)
     {

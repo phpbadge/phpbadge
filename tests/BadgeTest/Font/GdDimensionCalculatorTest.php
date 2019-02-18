@@ -3,36 +3,36 @@
 namespace PHP\BadgeTest\Font;
 
 use PHP\Badge\Font\Font;
-use PHP\Badge\Font\GdWidthCalculator;
-use PHP\BadgeTest\TestCase;
+use PHP\Badge\Font\GdDimensionCalculator;
+use PHP\BadgeTest\AbstractTestCase;
 
-class GdWidthCalculatorTest extends TestCase
+final class GdDimensionCalculatorTest extends AbstractTestCase
 {
     public function testGetWidth()
     {
         // Arrange
         $font = new Font(12, 'name', 'fonts/verdana.ttf');
-        $calculator = new GdWidthCalculator();
+        $calculator = new GdDimensionCalculator();
 
         // Act
         $width = $calculator->getWidth('text', $font);
 
         // Assert
-        $this->assertInternalType('float', $width);
-        $this->assertNumberWithinInclusiveBounds(30.0, 34.0, $width);
+        static::assertInternalType('float', $width);
+        static::assertNumberWithinInclusiveBounds(30.0, 34.0, $width);
     }
 
     public function testGetHeight()
     {
         // Arrange
         $font = new Font(12, 'name', 'fonts/verdana.ttf');
-        $calculator = new GdWidthCalculator();
+        $calculator = new GdDimensionCalculator();
 
         // Act
         $height = $calculator->getHeight('text', $font);
 
         // Assert
-        $this->assertInternalType('float', $height);
-        $this->assertNumberWithinInclusiveBounds(10.0, 12.0, $height);
+        static::assertInternalType('float', $height);
+        static::assertNumberWithinInclusiveBounds(10.0, 12.0, $height);
     }
 }

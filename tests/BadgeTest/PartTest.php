@@ -4,9 +4,8 @@ namespace PHP\BadgeTest;
 
 use PHP\Badge\Font\Font;
 use PHP\Badge\Part;
-use PHP\BadgeTest\TestCase;
 
-class PartTest extends TestCase
+final class PartTest extends AbstractTestCase
 {
     /**
      * @var Font

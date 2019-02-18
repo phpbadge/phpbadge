@@ -4,15 +4,24 @@ namespace PHP\Badge;
 
 use PHP\Badge\Font\Font;
 
-class Part
+final class Part
 {
+    /** @var string */
     private $text;
+
+    /** @var string */
     private $backColor;
+
+    /** @var string */
     private $foreColor;
+
+    /** @var Font */
     private $font;
+
+    /** @var int|null */
     private $width;
 
-    public function __construct($text, $backColor, $foreColor, Font $font, $width = null)
+    public function __construct(string $text, string $backColor, string $foreColor, Font $font, ?int $width = null)
     {
         $this->text = $text;
         $this->backColor = $backColor;
@@ -21,32 +30,32 @@ class Part
         $this->width = $width;
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    public function getBackColor()
+    public function getBackColor(): string
     {
         return $this->backColor;
     }
 
-    public function getForeColor()
+    public function getForeColor(): string
     {
         return $this->foreColor;
     }
 
-    public function getFont()
+    public function getFont(): Font
     {
         return $this->font;
     }
 
-    public function getWidth()
+    public function getWidth(): ?int
     {
         return $this->width;
     }
 
-    public function setWidth($width)
+    public function setWidth(?int $width): void
     {
         $this->width = $width;
     }
