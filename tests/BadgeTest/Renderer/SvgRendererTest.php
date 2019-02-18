@@ -94,6 +94,6 @@ class SvgRendererTest extends TestCase
         $result = $renderer->render($badge);
 
         // Assert
-        $this->assertStringEqualsFile('tests/BadgeTestAsset/with-border-two-parts-predefined.svg', $result);
+        $this->assertStringMatchesFormatFile('tests/BadgeTestAsset/with-border-two-parts-predefined.svg', $result);
     }
 }

@@ -76,10 +76,12 @@ class SvgRenderer implements RendererInterface
 
             if ($i > 0 && $radius > 0) {
                 $result .= sprintf(
-                    '<path fill="%s" d="M%d 0 h4 v%d h-4 z"/>',
+                    '<path fill="%s" d="M%d 0 h%d v%d h-%d z"/>',
                     $parts[$i]->getBackColor(),
                     $position,
-                    $badge->getHeight()
+                    $badge->getBorderRadius(),
+                    $badge->getHeight(),
+                    $badge->getBorderRadius()
                 );
             }
 
