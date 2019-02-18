@@ -2,52 +2,53 @@
 
 namespace PHP\Badge;
 
-use InvalidArgumentException;
-use PHP\Badge\Part;
-
-class Badge
+final class Badge
 {
+    /** @var int */
     private $borderRadius;
+
+    /** @var int */
     private $height;
+
+    /** @var Part[] */
     private $parts;
 
     public function __construct()
     {
         $this->borderRadius = 0;
         $this->height = 20;
-        $this->parts = array();
+        $this->parts = [];
     }
 
-    public function getBorderRadius()
+    public function getBorderRadius(): int
     {
         return $this->borderRadius;
     }
 
-    public function setBorderRadius($borderRadius)
+    public function setBorderRadius(int $borderRadius): void
     {
-        if (!is_int($borderRadius) && !is_float($borderRadius) && !ctype_digit($borderRadius)) {
-            throw new InvalidArgumentException('Invalid border radius proviided: ' . $borderRadius);
-        }
-
-        $this->borderRadius = (int)$borderRadius;
+        $this->borderRadius = $borderRadius;
     }
 
-    public function getHeight()
+    public function getHeight(): int
     {
         return $this->height;
     }
 
-    public function setHeight($height)
+    public function setHeight(int $height): void
     {
         $this->height = $height;
     }
 
-    public function addPart(Part $part)
+    public function addPart(Part $part): void
     {
         $this->parts[] = $part;
     }
 
-    public function getParts()
+    /**
+     * @return Part[]
+     */
+    public function getParts(): array
     {
         return $this->parts;
     }

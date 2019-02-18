@@ -3,42 +3,49 @@
 namespace PHP\Badge\Renderer;
 
 use PHP\Badge\Badge;
-use PHP\Badge\Font\WidthCalculatorInterface;
+use PHP\Badge\Font\DimensionCalculatorInterface;
 use PHP\Badge\Part;
-use PHP\Badge\Renderer\RendererInterface;
 
-class SvgRenderer implements RendererInterface
+final class SvgRenderer implements RendererInterface
 {
-    private $widthCalculator;
+    /** @var DimensionCalculatorInterface */
+    private $dimensionCalculator;
 
-    public function __construct(WidthCalculatorInterface $widthCalculator)
+    public function __construct(DimensionCalculatorInterface $dimensionCalculator)
     {
-        $this->widthCalculator = $widthCalculator;
+        $this->dimensionCalculator = $dimensionCalculator;
     }
 
-    private function calculateWidth(Part $part)
+    private function calculateWidth(Part $part): float
     {
-        $textWidth = $this->widthCalculator->getWidth($part->getText(), $part->getFont()) + 10;
-        if (!$part->getWidth()) {
-            $width = $textWidth;
-        } else {
-            $width = $part->getWidth();
+        $width = $part->getWidth();
+
+        if ($width === null) {
+            $width = $this->dimensionCalculator->getWidth(
+                $part->getText(),
+                $part->getFont()
+            ) + 10;
         }
 
         return $width;
     }
 
-    private function calculateTextYCoordinate(Badge $badge, Part $part)
+    private function calculateTextYCoordinate(Badge $badge, Part $part): float
     {
-        $textHeight = $this->widthCalculator->getHeight($part->getText(), $part->getFont());
-        $height = floor($badge->getHeight() / 2) + floor($textHeight / 2) - 1;
+        $textHeight = $this->dimensionCalculator->getHeight(
+            $part->getText(),
+            $part->getFont()
+        );
 
-        return $height;
+        return floor($badge->getHeight() / 2) + floor($textHeight / 2) - 1;
     }
 
-    private function calculateBoxWidths(Badge $badge)
+    /**
+     * @return float[]
+     */
+    private function calculateBoxWidths(Badge $badge): array
     {
-        $widths = array();
+        $widths = [];
 
         foreach ($badge->getParts() as $part) {
             $widths[] = $this->calculateWidth($part);
@@ -47,13 +54,13 @@ class SvgRenderer implements RendererInterface
         return $widths;
     }
 
-    private function renderBoxes(Badge $badge, &$totalWidth)
+    private function renderBoxes(Badge $badge, float &$totalWidth): string
     {
         $result = '';
 
         // Calculate the widths:
         $widths = $this->calculateBoxWidths($badge);
-        $totalWidth = array_sum($widths);
+        $totalWidth = (float)array_sum($widths);
 
         // The radius of the badge:
         $radius = $badge->getBorderRadius();
@@ -99,7 +106,7 @@ class SvgRenderer implements RendererInterface
         return $result;
     }
 
-    private function renderLabels(Badge $badge)
+    private function renderLabels(Badge $badge): string
     {
         $result = '';
 
@@ -136,7 +143,7 @@ class SvgRenderer implements RendererInterface
         return '<g text-anchor="middle">' . $result . '</g>';
     }
 
-    public function render(Badge $badge)
+    public function render(Badge $badge): string
     {
         $width = 0;
         $height = $badge->getHeight();

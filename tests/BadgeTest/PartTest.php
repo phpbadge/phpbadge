@@ -4,9 +4,8 @@ namespace PHP\BadgeTest;
 
 use PHP\Badge\Font\Font;
 use PHP\Badge\Part;
-use PHP\BadgeTest\TestCase;
 
-class PartTest extends TestCase
+final class PartTest extends AbstractTestCase
 {
     /**
      * @var Font
@@ -21,7 +20,7 @@ class PartTest extends TestCase
     public function setUp()
     {
         $this->font = new Font(12, 'name', 'path');
-        $this->part = new Part('text', 'backcolor', 'forecolor', $this->font, 'width');
+        $this->part = new Part('text', 'backcolor', 'forecolor', $this->font);
     }
 
     public function testGetText()
@@ -82,18 +81,6 @@ class PartTest extends TestCase
         $value = $this->part->getWidth();
 
         // Assert
-        $this->assertEquals('width', $value);
-    }
-
-    public function testSetWidth()
-    {
-        // Arrange
-        // ...
-
-        // Act
-        $this->part->setWidth('anotherWidth');
-
-        // Assert
-        $this->assertEquals('anotherWidth', $this->part->getWidth());
+        $this->assertNull($value);
     }
 }

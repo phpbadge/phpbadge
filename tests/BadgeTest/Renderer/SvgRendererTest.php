@@ -4,17 +4,17 @@ namespace PHP\BadgeTest\Renderer;
 
 use PHP\Badge\Badge;
 use PHP\Badge\Font\Font;
-use PHP\Badge\Font\GdWidthCalculator;
+use PHP\Badge\Font\GdDimensionCalculator;
 use PHP\Badge\Part;
 use PHP\Badge\Renderer\SvgRenderer;
-use PHP\BadgeTest\TestCase;
+use PHP\BadgeTest\AbstractTestCase;
 
-class SvgRendererTest extends TestCase
+final class SvgRendererTest extends AbstractTestCase
 {
     public function testRenderNoParts()
     {
         // Arrange
-        $renderer = new SvgRenderer(new GdWidthCalculator());
+        $renderer = new SvgRenderer(new GdDimensionCalculator());
         $badge = new Badge();
 
         // Act
@@ -27,7 +27,7 @@ class SvgRendererTest extends TestCase
     public function testRenderOnePart()
     {
         // Arrange
-        $renderer = new SvgRenderer(new GdWidthCalculator());
+        $renderer = new SvgRenderer(new GdDimensionCalculator());
 
         $font = new Font(12, 'verdana', 'fonts/verdana.ttf');
 
@@ -44,7 +44,7 @@ class SvgRendererTest extends TestCase
     public function testRenderTwoPart()
     {
         // Arrange
-        $renderer = new SvgRenderer(new GdWidthCalculator());
+        $renderer = new SvgRenderer(new GdDimensionCalculator());
 
         $font = new Font(12, 'verdana', 'fonts/verdana.ttf');
 
@@ -62,7 +62,7 @@ class SvgRendererTest extends TestCase
     public function testRenderTwoPartWithBorder()
     {
         // Arrange
-        $renderer = new SvgRenderer(new GdWidthCalculator());
+        $renderer = new SvgRenderer(new GdDimensionCalculator());
 
         $font = new Font(12, 'verdana', 'fonts/verdana.ttf');
 
@@ -81,7 +81,7 @@ class SvgRendererTest extends TestCase
     public function testRenderTwoPartWithBorderAndPredifinedWidth()
     {
         // Arrange
-        $renderer = new SvgRenderer(new GdWidthCalculator());
+        $renderer = new SvgRenderer(new GdDimensionCalculator());
 
         $font = new Font(12, 'verdana', 'fonts/verdana.ttf');
 

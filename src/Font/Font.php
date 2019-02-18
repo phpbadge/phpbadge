@@ -1,37 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PHP\Badge\Font;
 
-use InvalidArgumentException;
-
-class Font
+final class Font
 {
+    /** @var int */
     private $size;
+
+    /** @var string */
     private $name;
+
+    /** @var string */
     private $path;
 
-    public function __construct($size, $name, $path)
+    public function __construct(int $size, string $name, string $path)
     {
-        if (!is_int($size) && !ctype_digit($size)) {
-            throw new InvalidArgumentException('Invalid size proviided: ' . $size);
-        }
-
         $this->size = $size;
         $this->name = $name;
         $this->path = $path;
     }
 
-    public function getSize()
+    public function getSize(): int
     {
         return $this->size;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
